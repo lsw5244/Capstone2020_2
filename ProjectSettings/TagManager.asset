@@ -49,6 +49,15 @@ TagManager:
   - name: Tree
     uniqueID: 367219455
     locked: 0
+  - name: Sub Tree
+    uniqueID: 1072259737
+    locked: 0
+  - name: Fence
+    uniqueID: 208778525
+    locked: 0
+  - name: Rock
+    uniqueID: 1600696215
+    locked: 0
   - name: Ground
     uniqueID: 3888174169
     locked: 0
