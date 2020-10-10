@@ -1,0 +1,4 @@
+Created by Michael A. Lamark
+Shadow Forge Assets
+Grayscale versions of the backgrounds and borders are provided so that you may set your own colors.
+FullSheet is set to single image for display purposes. Set to multiple image, 16x16 grid slice.
