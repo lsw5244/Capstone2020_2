@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 // TODO : HP, 사망 모션 추가하기
-// FIX : 공격 애니메이션 때 가스 나오는 위치 조절
 public class Monster_Mushroom : MonoBehaviour
 {
 
@@ -91,6 +90,45 @@ public class Monster_Mushroom : MonoBehaviour
             Instantiate(m_gas, m_gasSpawnLocation);
     }
 
+    private void OnCollisionEnter2D(Collision2D coll)
+    {
+        if(coll.transform.tag == "PLAYER")
+        {
+            if (!isAttack)
+            {
+                StopAllCoroutines();
+                // 공격 시 플레이어 바라보도록 함
+                if ((coll.transform.position.x > transform.position.x) && (moveDir == -1)
+                    || (coll.transform.position.x < transform.position.x) && (moveDir == 1))
+                {
+                    moveDir *= -1;
+                    transform.Rotate(0, 180, 0);
+                }
+                StartCoroutine("Attack");
+            }
+        }
+
+    }
+
+    private void OnCollisionStay2D(Collision2D coll)
+    {
+        if (coll.transform.tag == "PLAYER")
+        {
+            if (!isAttack)
+            {
+                StopAllCoroutines();
+                // 공격 시 플레이어 바라보도록 함
+                if ((coll.transform.position.x > transform.position.x) && (moveDir == -1)
+                    || (coll.transform.position.x < transform.position.x) && (moveDir == 1))
+                {
+                    moveDir *= -1;
+                    transform.Rotate(0, 180, 0);
+                }
+                StartCoroutine("Attack");
+            }
+        }
+
+    }
     /*void ChangeAnimation(string State)
     {
         if (currentState == State)
