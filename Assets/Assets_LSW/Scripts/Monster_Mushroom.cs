@@ -8,32 +8,32 @@ public class Monster_Mushroom : MonoBehaviour
 
     Rigidbody2D rigi;
     Animator ani;
-
+    [SerializeField] Transform m_gasSpawnLocation;
     int moveDir = 1;
     [SerializeField] float speed = 10f;
     float hp = 3;
 
-    string attack = "Mushroom_Purple_Attack 1";
+    [SerializeField] GameObject m_gas;
+
+    /*string attack = "Mushroom_Purple_Attack 1";
     string die = "Mushroom_Purple_Death 1";
     string hurt = "Mushroom_Purple_Hurt 1";
     string walk = "Mushroom_Purple_Walk 1";
     string currentState;
-
+    */
     bool isAttack = false;
-
     void Start()
     {
         rigi = GetComponent<Rigidbody2D>();
         ani = GetComponent<Animator>();
         StartCoroutine("ChangeDir");
-        ChangeAnimation(walk);
     }
 
     void Update()
     {
         CheckFloor();
         rigi.velocity = new Vector2(moveDir * speed, rigi.velocity.y);
-        if(Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButton(0))
         {
             if(!isAttack)
             {
@@ -46,23 +46,15 @@ public class Monster_Mushroom : MonoBehaviour
     IEnumerator Attack()
     {
         isAttack = true;
-        ChangeAnimation(attack);
         int temp = moveDir;
         moveDir = 0;
-        yield return new WaitForSeconds(1.0f);
-        ChangeAnimation(walk);
+        ani.SetTrigger("Attack");
+        yield return new WaitForSeconds(1.5f);
         moveDir = temp;
         StartCoroutine("ChangeDir");
         isAttack = false;
     }
 
-    IEnumerator Die()
-    {
-        ani.Play(die);
-        moveDir = 0;
-        yield return new WaitForSeconds(2.0f);
-        Destroy(GetComponentInParent<Transform>().gameObject);
-    }
 
     void CheckFloor()
     {
@@ -93,11 +85,17 @@ public class Monster_Mushroom : MonoBehaviour
         StartCoroutine("ChangeDir");
     }
 
-    void ChangeAnimation(string State)
+    void spawnGas()
+    {
+        if (m_gas != null)
+            Instantiate(m_gas, m_gasSpawnLocation);
+    }
+
+    /*void ChangeAnimation(string State)
     {
         if (currentState == State)
             return;
         currentState = State;
         ani.Play(State);
-    }
+    }*/
 }
