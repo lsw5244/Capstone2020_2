@@ -8,10 +8,12 @@ public class Monster_Mushroom : MonoBehaviour
     Rigidbody2D rigi;
     int moveDir = 1;
     [SerializeField] float speed = 10f;
+    float hp = 3;
 
     void Start()
     {
         rigi = GetComponent<Rigidbody2D>();
+        StartCoroutine("ChangeDir");
     }
 
     void Update()
@@ -36,9 +38,16 @@ public class Monster_Mushroom : MonoBehaviour
 
     IEnumerator ChangeDir()
     {
-        yield return new WaitForSeconds(2.0f);
+        int temp = moveDir;
+        yield return new WaitForSeconds(1.0f);
 
-        moveDir = Random.Range(-1, 2);
+       // moveDir = Random.Range(-1, 2);
+        moveDir = Random.Range(0, 2) < 1 ? -1 : 1;
+        // 반대방향 이동할 때 보는 방향 전환
+        if((temp == 1 && moveDir == -1) || (temp == -1 && moveDir == 1))
+        {
+            transform.Rotate(0, 180, 0);
+        }
         StartCoroutine("ChangeDir");
     }
 }
