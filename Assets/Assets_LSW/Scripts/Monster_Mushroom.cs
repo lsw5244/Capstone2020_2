@@ -107,7 +107,6 @@ public class Monster_Mushroom : MonoBehaviour
                 StartCoroutine("Attack");
             }
         }
-
     }
 
     private void OnCollisionStay2D(Collision2D coll)
@@ -127,7 +126,6 @@ public class Monster_Mushroom : MonoBehaviour
                 StartCoroutine("Attack");
             }
         }
-
     }
     /*void ChangeAnimation(string State)
     {

@@ -198,7 +198,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 247760955}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.08, y: 3.01, z: 0}
+  m_LocalPosition: {x: 6.97, y: 3.14, z: 0}
   m_LocalScale: {x: 0.49890625, y: 1.7375, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -600,7 +600,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1319304621}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MushroomPurple
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -615,7 +615,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1319304620}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -5.96, y: -0.36, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children:
   - {fileID: 4567567731044129761}
@@ -629,6 +629,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1658998725451064652, guid: 023436415d705c546a16696edcebfa5e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1658998725451064655, guid: 023436415d705c546a16696edcebfa5e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1658998725746327764, guid: 023436415d705c546a16696edcebfa5e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1658998725775830123, guid: 023436415d705c546a16696edcebfa5e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 1658998726323608338, guid: 023436415d705c546a16696edcebfa5e,
         type: 3}
       propertyPath: m_Name
@@ -637,12 +657,17 @@ PrefabInstance:
     - target: {fileID: 1658998726323608338, guid: 023436415d705c546a16696edcebfa5e,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1658998726323608338, guid: 023436415d705c546a16696edcebfa5e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1658998726323608365, guid: 023436415d705c546a16696edcebfa5e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -3.49
       objectReference: {fileID: 0}
     - target: {fileID: 1658998726323608365, guid: 023436415d705c546a16696edcebfa5e,
         type: 3}
@@ -693,6 +718,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1658998727128297092, guid: 023436415d705c546a16696edcebfa5e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 023436415d705c546a16696edcebfa5e, type: 3}
@@ -787,7 +817,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4569222895758547381}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.548, y: 0, z: 0}
+  m_LocalPosition: {x: 1.695, y: -0.097, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4567738951482493473}
@@ -823,7 +853,7 @@ GameObject:
   - component: {fileID: 4602661267573386977}
   - component: {fileID: 4591232086820633085}
   - component: {fileID: 4569222895758547382}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BabyMushroom_Purple
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -854,7 +884,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4567738951482493473}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GasSpawnLocation
   m_TagString: Untagged
   m_Icon: {fileID: 0}

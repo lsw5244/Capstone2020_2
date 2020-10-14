@@ -99,9 +99,14 @@
     <Compile Include="Assets\Assets_LSW\Baby Mushroom - Pixel Art\Demo\Gas_DestroyEvent.cs" />
     <Compile Include="Assets\Assets_LSW\FreePixelMob\Mobs.cs" />
     <Compile Include="Assets\Assets_LSW\FreePixelMob\StateRandom.cs" />
+    <Compile Include="Assets\Assets_LSW\PixelMobs\Script\Ease.cs" />
+    <Compile Include="Assets\Assets_LSW\PixelMobs\Script\Intro.cs" />
+    <Compile Include="Assets\Assets_LSW\PixelMobs\Script\Mob.cs" />
+    <Compile Include="Assets\Assets_LSW\PixelMobs\Script\StateRandomOffset.cs" />
     <Compile Include="Assets\Assets_LSW\Scripts\Monster_Mushroom.cs" />
     <Compile Include="Assets\Assets_LSW\Scripts\Monster_Slime.cs" />
     <Compile Include="Assets\Assets_LSW\Scripts\PlayerTemp.cs" />
+    <Compile Include="Assets\Assets_LSW\Scripts\StandardMonsterScript.cs" />
     <Compile Include="Assets\Assets_YYH\UI\Pixel UI\Demo\Scripts\ClockDemo.cs" />
     <Compile Include="Assets\Assets_YYH\UI\Pixel UI\Demo\Scripts\CubitsController.cs" />
     <Compile Include="Assets\Assets_YYH\UI\Pixel UI\Demo\Scripts\DemoDialogue.cs" />
@@ -160,6 +165,7 @@
     <None Include="Assets\Assets_YYH\Item\2D Pixel RPG Icon Pack\TextMesh Pro\Resources\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\Assets_HSJ\Download_Content\PixelPerfectCamera\README.txt" />
     <None Include="Assets\Assets_YYH\Item\2D Pixel RPG Icon Pack\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+    <None Include="Assets\Assets_LSW\PixelMobs\ReadMe.txt" />
     <None Include="Assets\Assets_HSJ\Download_Content\ScreenTransitionsPro\Shaders\TransitionDisplacement.shader" />
     <None Include="Assets\Assets_LSW\SimplePixelUI\fonts\Font1\readme.txt" />
     <None Include="Assets\Assets_YYH\Item\2D Pixel RPG Icon Pack\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Masking.shader" />
