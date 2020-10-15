@@ -13,9 +13,12 @@ public class StandardMonsterScript : MonoBehaviour
     [SerializeField] float speed = 10f;
     int moveDir = 1;
     bool isAttack = false;
+    [SerializeField] int maxHP = 100;
+    private int currentHP;
 
     void Start()
     {
+        currentHP = maxHP;
         rigi = GetComponent<Rigidbody2D>();
         ani = GetComponent<Animator>();
     }
@@ -77,12 +80,25 @@ public class StandardMonsterScript : MonoBehaviour
         }
     }
 
+    public void GetDamage(int damage)
+    {
+        currentHP -= damage;
+        if (currentHP <= 0)
+        {
+            ani.SetTrigger("Death");
+            Destroy(this.gameObject, 4);
+            rigi.isKinematic = true;
+            // 콜라이더 끄기
+        }
+    }
+
     IEnumerator Attack()
     {
         isAttack = true;
         int temp = moveDir;
         moveDir = 0;
         ani.SetTrigger("Attack");
+        //TODO : 공격 기능 쓰기
         yield return new WaitForSeconds(1.5f);
         moveDir = temp;
         isAttack = false;
