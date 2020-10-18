@@ -1,20 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
+// TODO : hpCamvas가 회전 하지 않도록 만들기
+// TODO : 아이템 랜덤 드랍되도록 하기
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Animator))]
-
 public class StandardMonsterScript : MonoBehaviour
 {
-    Rigidbody2D rigi;
-    Animator ani;
+    private Rigidbody2D rigi;
+    private Animator ani;
 
     [SerializeField] float speed = 10f;
-    int moveDir = 1;
+    int moveDir = 1; // 처음 이동은 오른쪽으로 이동함
     bool isAttack = false;
     [SerializeField] int maxHP = 100;
     private int currentHP;
+    [SerializeField] Canvas hpCanvas;
+    [SerializeField] Image hpImage;
 
     void Start()
     {
@@ -44,6 +47,12 @@ public class StandardMonsterScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D coll)
     {
+        if(coll.gameObject.tag == "MONSTER")
+        {
+            moveDir *= -1;
+            transform.Rotate(0, 180, 0);
+        }
+
         if (coll.transform.tag == "PLAYER")
         {
             if (!isAttack)
@@ -83,12 +92,14 @@ public class StandardMonsterScript : MonoBehaviour
     public void GetDamage(int damage)
     {
         currentHP -= damage;
+        hpImage.fillAmount = currentHP / maxHP;
         if (currentHP <= 0)
         {
             ani.SetTrigger("Death");
             Destroy(this.gameObject, 4);
             rigi.isKinematic = true;
             // 콜라이더 끄기
+            GetComponent<BoxCollider2D>().enabled = false;
         }
     }
 
