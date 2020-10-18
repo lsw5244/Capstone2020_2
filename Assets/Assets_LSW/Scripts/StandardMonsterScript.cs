@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-// TODO : hpCamvas가 회전 하지 않도록 만들기
 // TODO : 아이템 랜덤 드랍되도록 하기
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Animator))]
@@ -12,8 +11,8 @@ public class StandardMonsterScript : MonoBehaviour
     private Animator ani;
 
     [SerializeField] float speed = 10f;
-    int moveDir = 1; // 처음 이동은 오른쪽으로 이동함
-    bool isAttack = false;
+    private int moveDir = 1; // 처음 이동은 오른쪽으로 이동함
+    private bool isAttack = false;
     [SerializeField] int maxHP = 100;
     private int currentHP;
     [SerializeField] Canvas hpCanvas;
@@ -40,8 +39,7 @@ public class StandardMonsterScript : MonoBehaviour
         {
             moveDir *= -1;
             transform.Rotate(0, 180, 0);
-            StopAllCoroutines();
-            StartCoroutine("ChangeDir");
+            hpCanvas.transform.Rotate(0, 180, 0);
         }
     }
 
@@ -51,6 +49,7 @@ public class StandardMonsterScript : MonoBehaviour
         {
             moveDir *= -1;
             transform.Rotate(0, 180, 0);
+            hpCanvas.transform.Rotate(0, 180, 0);
         }
 
         if (coll.transform.tag == "PLAYER")
@@ -64,6 +63,7 @@ public class StandardMonsterScript : MonoBehaviour
                 {
                     moveDir *= -1;
                     transform.Rotate(0, 180, 0);
+                    hpCanvas.transform.Rotate(0, 180, 0);
                 }
                 StartCoroutine("Attack");
             }
@@ -83,6 +83,7 @@ public class StandardMonsterScript : MonoBehaviour
                 {
                     moveDir *= -1;
                     transform.Rotate(0, 180, 0);
+                    hpCanvas.transform.Rotate(0, 180, 0);
                 }
                 StartCoroutine("Attack");
             }
@@ -98,7 +99,6 @@ public class StandardMonsterScript : MonoBehaviour
             ani.SetTrigger("Death");
             Destroy(this.gameObject, 4);
             rigi.isKinematic = true;
-            // 콜라이더 끄기
             GetComponent<BoxCollider2D>().enabled = false;
         }
     }
