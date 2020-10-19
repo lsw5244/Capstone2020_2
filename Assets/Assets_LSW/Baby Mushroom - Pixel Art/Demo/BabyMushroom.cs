@@ -55,10 +55,10 @@ public class BabyMushroom : MonoBehaviour {
             m_animator.SetInteger("AnimState", 0);
     }
 
-    /*void spawnGas() {
+    void spawnGas() {
         if (m_gas != null)
             Instantiate(m_gas, m_gasSpawnLocation);
-    }*/
+    }
 }
 
 
