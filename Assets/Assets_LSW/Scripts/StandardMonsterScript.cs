@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-// TODO : 아이템 랜덤 드랍되도록 하기
+//플레이어의 컴포넌트에 접근하여 데미지 주기
+
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Animator))]
 public class StandardMonsterScript : MonoBehaviour
@@ -17,6 +18,8 @@ public class StandardMonsterScript : MonoBehaviour
     private int currentHP;
     [SerializeField] Canvas hpCanvas;
     [SerializeField] Image hpImage;
+    [SerializeField] GameObject[] items;
+    [SerializeField] float attackAnimationLength = 1.5f;
 
     void Start()
     {
@@ -65,7 +68,7 @@ public class StandardMonsterScript : MonoBehaviour
                     transform.Rotate(0, 180, 0);
                     hpCanvas.transform.Rotate(0, 180, 0);
                 }
-                StartCoroutine("Attack");
+                StartCoroutine("Attack", coll);
             }
         }
     }
@@ -85,7 +88,7 @@ public class StandardMonsterScript : MonoBehaviour
                     transform.Rotate(0, 180, 0);
                     hpCanvas.transform.Rotate(0, 180, 0);
                 }
-                StartCoroutine("Attack");
+                StartCoroutine("Attack", coll);
             }
         }
     }
@@ -100,17 +103,20 @@ public class StandardMonsterScript : MonoBehaviour
             Destroy(this.gameObject, 4);
             rigi.isKinematic = true;
             GetComponent<BoxCollider2D>().enabled = false;
+            GameObject item = Instantiate(items[Random.Range(0, items.Length)], transform.position, Quaternion.identity);
+            item.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 150f);
         }
     }
 
-    IEnumerator Attack()
+    IEnumerator Attack(Collision2D coll)
     {
         isAttack = true;
         int temp = moveDir;
         moveDir = 0;
         ani.SetTrigger("Attack");
         //TODO : 공격 기능 쓰기
-        yield return new WaitForSeconds(1.5f);
+        //coll.gameObject.GetComponent<???>().???();
+        yield return new WaitForSeconds(attackAnimationLength);
         moveDir = temp;
         isAttack = false;
     }
