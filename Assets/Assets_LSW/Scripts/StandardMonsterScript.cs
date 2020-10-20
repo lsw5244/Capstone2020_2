@@ -56,6 +56,12 @@ public class StandardMonsterScript : MonoBehaviour
     {
         if (isDeath)
             return;
+        // 공격 받기
+        if(coll.gameObject.tag == "ATTACK")
+        {
+            GetDamage(coll.gameObject.GetComponent<Player>().damage);
+        }
+
         if (coll.gameObject.tag == "MONSTER")
         {
             moveDir *= -1;
@@ -132,8 +138,7 @@ public class StandardMonsterScript : MonoBehaviour
         int temp = moveDir;
         moveDir = 0;
         ani.SetTrigger("Attack");
-        //TODO : 공격 기능 쓰기
-        //coll.gameObject.GetComponent<???>().???();
+
         yield return new WaitForSeconds(attackAnimationLength);
         moveDir = temp;
         isAttack = false;
