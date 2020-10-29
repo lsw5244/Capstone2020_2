@@ -15,11 +15,11 @@ public class Temp : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0))
         {
-            Debug.Log(SaveManager.saveManager.Str);
+            Debug.Log(SaveManager.instance.Str);
         }
         if(Input.GetMouseButtonUp(0))
         {
-            SaveManager.saveManager.PlusStr(5f);
+            SaveManager.instance.AddStr(5f);
         }
     }
 }
