@@ -131,8 +131,11 @@ public class StandardMonsterScript : MonoBehaviour
             GetComponent<BoxCollider2D>().enabled = false;
             if (items == null)
                 return;
-            GameObject item = Instantiate(items[Random.Range(0, items.Length)], transform.position, Quaternion.identity);
-            item.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 150f);
+            if((int)Random.Range(0, 5) == 0)
+            {
+                GameObject item = Instantiate(items[Random.Range(0, items.Length)], transform.position, Quaternion.identity);
+                item.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 150f);
+            }
         }
     }
 
