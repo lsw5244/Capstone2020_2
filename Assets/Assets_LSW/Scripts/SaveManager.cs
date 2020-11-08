@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 /*
- * 스탯종류는 STR, DEX, DEF, LUK, MOV, CRT
+ * 스탯종류는 STR
  */
 public class SaveManager : MonoBehaviour
 {
@@ -15,57 +15,8 @@ public class SaveManager : MonoBehaviour
     public void AddStr(float add)
     {
         str += add;
+        PlayerPrefs.SetFloat("CurrentStr", str);
         //Debug.Log(str);
-    }
-
-    private float dex;
-    public float Dex
-    {
-        get { return dex; }
-    }
-    public void AddDex(float add)
-    {
-        dex += add;
-    }
-
-    private float def;
-    public float Def
-    {
-        get { return def; }
-    }
-    public void AddDef(float add)
-    {
-        def += add;
-    }
-
-    private float luk;
-    public float Luk
-    {
-        get { return luk; }
-    }
-    public void AddLuk(float add)
-    {
-        luk += add;
-    }
-
-    private float mov;
-    public float Mov
-    {
-        get { return mov; }
-    }
-    public void AddMov(float add)
-    {
-        mov += add;
-    }
-
-    private float crt;
-    public float Crt
-    {
-        get { return crt; }
-    }
-    public void AddCrt(float add)
-    {
-        crt += add;
     }
 
     private void Awake()
@@ -73,19 +24,18 @@ public class SaveManager : MonoBehaviour
         if(instance == null)
         {
             instance = this;
+            str = 50f;
+            PlayerPrefs.SetFloat("CurrentStr", str);
         }
     }
     void Start()
     {
         str = PlayerPrefs.GetFloat("CurrentStr");
-        dex = PlayerPrefs.GetFloat("CurrentDex");
-        luk = PlayerPrefs.GetFloat("CurrentLuk");
-        mov = PlayerPrefs.GetFloat("CurrentMov");
-        crt = PlayerPrefs.GetFloat("CurrentCrt");
     }
 
-    void Update()
+    public void ResetStatus()
     {
-        
+        str = 50f;
+        str = PlayerPrefs.GetFloat("CurrentStr");
     }
 }

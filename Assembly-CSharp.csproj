@@ -108,6 +108,7 @@
     <Compile Include="Assets\Assets_LSW\Scripts\PlayerTemp.cs" />
     <Compile Include="Assets\Assets_LSW\Scripts\SaveManager.cs" />
     <Compile Include="Assets\Assets_LSW\Scripts\StandardMonsterScript.cs" />
+    <Compile Include="Assets\Assets_LSW\Scripts\StrItem.cs" />
     <Compile Include="Assets\Assets_LSW\Scripts\Temp.cs" />
     <Compile Include="Assets\Assets_YYH\UI\Pixel UI\Demo\Scripts\ClockDemo.cs" />
     <Compile Include="Assets\Assets_YYH\UI\Pixel UI\Demo\Scripts\CubitsController.cs" />
