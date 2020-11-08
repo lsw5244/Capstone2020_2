@@ -67,6 +67,7 @@ public class StandardMonsterScript : MonoBehaviour
             moveDir *= -1;
             transform.Rotate(0, 180, 0);
             hpCanvas.transform.Rotate(0, 180, 0);
+           
             return;
         }
 
@@ -82,7 +83,9 @@ public class StandardMonsterScript : MonoBehaviour
                     moveDir *= -1;
                     transform.Rotate(0, 180, 0);
                     hpCanvas.transform.Rotate(0, 180, 0);
+                    speed = 0;
                 }
+                speed = 5;
                 StartCoroutine("Attack", coll);
             }
         }
@@ -115,6 +118,7 @@ public class StandardMonsterScript : MonoBehaviour
     {
         currentHP -= damage;
         hpImage.fillAmount = currentHP / maxHP;
+        ani.SetTrigger("Hurt");
 
         if (currentHP <= 0 && !isDeath)
         {
@@ -127,8 +131,11 @@ public class StandardMonsterScript : MonoBehaviour
             GetComponent<BoxCollider2D>().enabled = false;
             if (items == null)
                 return;
-            GameObject item = Instantiate(items[Random.Range(0, items.Length)], transform.position, Quaternion.identity);
-            item.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 150f);
+            if((int)Random.Range(0, 5) == 0)
+            {
+                GameObject item = Instantiate(items[Random.Range(0, items.Length)], transform.position, Quaternion.identity);
+                item.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 150f);
+            }
         }
     }
 
