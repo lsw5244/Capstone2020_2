@@ -85,7 +85,7 @@ public class StandardMonsterScript : MonoBehaviour
                     hpCanvas.transform.Rotate(0, 180, 0);
                     speed = 0;
                 }
-                speed = 5;
+                speed = 2;
                 StartCoroutine("Attack", coll);
             }
         }
