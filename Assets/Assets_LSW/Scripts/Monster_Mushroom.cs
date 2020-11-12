@@ -116,7 +116,6 @@ public class Monster_Mushroom : MonoBehaviour
             if (!isAttack)
             {
                 StopAllCoroutines();
-                // 공격 시 플레이어 바라보도록 함
                 if ((coll.transform.position.x > transform.position.x) && (moveDir == -1)
                     || (coll.transform.position.x < transform.position.x) && (moveDir == 1))
                 {

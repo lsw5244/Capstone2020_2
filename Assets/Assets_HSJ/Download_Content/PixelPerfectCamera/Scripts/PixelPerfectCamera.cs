@@ -185,7 +185,7 @@ public class PixelPerfectCamera : MonoBehaviour {
         float maxCameraHeightReq = (maxCameraHeightEnabled) ? maxCameraHeight : -1;
         float cameraSize = calculatePixelPerfectCameraSize(pixelPerfect, res, assetsPixelsPerUnit, maxCameraWidthReq, maxCameraHeightReq, targetCameraWidth, targetCameraHeight, targetDimension);
 
-        cam.orthographicSize = cameraSize;
+        cam.orthographicSize = cameraSize =3;
     }
 
     //void Start()
