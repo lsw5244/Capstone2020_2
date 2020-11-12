@@ -209,7 +209,7 @@ GameObject:
   - component: {fileID: 247760959}
   m_Layer: 8
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: PLAYER
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1283,7 +1283,7 @@ GameObject:
   - component: {fileID: 2055038003}
   m_Layer: 9
   m_Name: BabyMushroom_Purple (2)
-  m_TagString: Untagged
+  m_TagString: MONSTER
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1514,7 +1514,7 @@ PrefabInstance:
     - target: {fileID: 7009136654718160372, guid: a315ee1fe0034a944a08f7e02eee1fe5,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: MONSTER
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a315ee1fe0034a944a08f7e02eee1fe5, type: 3}

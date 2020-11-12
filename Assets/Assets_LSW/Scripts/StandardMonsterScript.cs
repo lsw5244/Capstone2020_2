@@ -60,7 +60,7 @@ public class StandardMonsterScript : MonoBehaviour
         if (coll.gameObject.tag == "MONSTER")
         {
             // 공격중일 땐 회전 X
-            if (speed <= 0)
+            if (moveDir == 0)
                 return;
 
             moveDir *= -1;
