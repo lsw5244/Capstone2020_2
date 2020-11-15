@@ -12,6 +12,8 @@ public class RogueBoss : MonoBehaviour
     [SerializeField] float maxHP = 100;
     private float currentHP;
     [SerializeField] Transform playerTr;
+    [SerializeField] CircleCollider2D attackCollider;
+    private bool isAttack = false;
 
     void Start()
     {
@@ -26,8 +28,14 @@ public class RogueBoss : MonoBehaviour
     void Update()
     {
         //CheckFloor();
+        if(Input.GetMouseButton(0))
+        {
+            if(!isAttack)
+                StartCoroutine("Attack");
+        }
         CheckPlayerPosition();
-        rigi.velocity = new Vector2(moveDir * speed, rigi.velocity.y);
+        if(!isAttack)
+            rigi.velocity = new Vector2(moveDir * speed, rigi.velocity.y);
     }
     void CheckFloor()
     {
@@ -56,5 +64,13 @@ public class RogueBoss : MonoBehaviour
             moveDir = -1;
             transform.Rotate(0, 180, 0);
         }
+    }
+    IEnumerator Attack()
+    {
+        isAttack = true;
+        ani.SetTrigger("Attack");
+        yield return new WaitForSeconds(1.0f);
+        attackCollider.enabled = true;
+        isAttack = false;
     }
 }
