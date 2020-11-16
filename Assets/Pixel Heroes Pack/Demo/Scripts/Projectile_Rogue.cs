@@ -8,7 +8,6 @@ public class Projectile_Rogue : MonoBehaviour
     float speed = 5.0f;
 
     private Rigidbody2D body2d;
-
     // Use this for initialization
     void Start()
     {
