@@ -153,6 +153,7 @@
     <None Include="Assets\Assets_YYH\Item\PixelItems\ReadMe.txt" />
     <None Include="Assets\Assets_HSJ\Download_Content\ScreenTransitionsPro\Shaders\TransitionSimpleSoft.shader" />
     <None Include="Assets\Assets_HSJ\Download_Content\ScreenTransitionsPro\Shaders\TransitionFade.shader" />
+    <None Include="Assets\Assets_HSJ\New Classic Retro Synthwave\readme.txt" />
     <None Include="Assets\Assets_LSW\FreePixelMob\ReadMe.txt" />
     <None Include="Assets\Assets_HSJ\Download_Content\ScreenTransitionsPro\Shaders\TransitionSingleFocus.shader" />
     <None Include="Assets\Assets_YYH\Item\2D Pixel RPG Icon Pack\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />

@@ -10,8 +10,9 @@ public class Player : PlayerState
     public float walkcooltime;
     //사운드
     AudioSource audioSource;
-    AudioClip jumpSound;
-    AudioClip walkSound;
+   public AudioClip jumpSound;
+   public AudioClip walkSound;
+    public AudioClip[] attackSound;
     //애니메이션
     string playerAnimationState;
     Animator animator;
@@ -28,9 +29,8 @@ public class Player : PlayerState
 
     //공격
     public GameObject attackCollider;
-    public bool isAttack;
+    public bool isAttack=false;
     public float attackcooltime;
-    public GameObject attackRange;
     public int combo;
     private void Start()
     {
@@ -40,13 +40,16 @@ public class Player : PlayerState
     }
     private void Update()
     {
-        if (HP<=0) {
+        if (HP <= 0)
+        {
             changeAnimation(death);
         }
-        if (isground && !isAttack)
+        if (isground == true && isAttack == false)
         {
-            if (joystick.joystickVector.x != 0) {
-                if (walkcooltime > 2f) {
+            if (joystick.joystickVector.x != 0)
+            {
+                if (walkcooltime > 0.4f)
+                {
                     audioSource.PlayOneShot(walkSound, 1);
                     walkcooltime = 0;
                 }
@@ -56,9 +59,22 @@ public class Player : PlayerState
             {
                 changeAnimation(idle);
             }
-            if (walkcooltime <= 2) {
-                walkcooltime += 0.1f;
+            if (walkcooltime <= 0.6f)
+            {
+                walkcooltime += Time.deltaTime;
             }
+        }
+        if (rb.velocity.y > 0 && isground == false && isAttack == false)
+        {
+            changeAnimation(jump);
+        }
+        else if (rb.velocity.y < 0 && isground == false && isAttack == false)
+        {
+                changeAnimation(jumpToFall);
+        }
+        if (attackcooltime <= 1)
+        {
+            attackcooltime += Time.deltaTime;
         }
     }
     private void FixedUpdate()
@@ -72,9 +88,8 @@ public class Player : PlayerState
     }
     //점프
     public void Jump() {
-        if (rb.velocity.y>=0&&isground==true) {
-            rb.AddForce(Vector2.up * jumpPower);
-            changeAnimation("jump");
+        if (rb.velocity.y>=0&&isground) {
+            rb.AddForce(Vector2.up * jumpPower);     
             audioSource.PlayOneShot(jumpSound);
         }
     }
@@ -84,23 +99,26 @@ public class Player : PlayerState
         if (attackcooltime >= 0.5f) {
             isAttack = true;
             attackcooltime = 0;
-            attackRange.SetActive(true);
+            attackCollider.SetActive(true);
             rb.velocity = new Vector2(0, rb.velocity.y);
             if (combo == 0)
             {
                 changeAnimation(attack);
+                audioSource.PlayOneShot(attackSound[0]);
                 combo++;
             }
             else if (combo == 1)
             {
                 changeAnimation(attack2);
+                audioSource.PlayOneShot(attackSound[1]);
                 combo++;
             }
             else {
                 changeAnimation(attack3);
+                audioSource.PlayOneShot(attackSound[2]);
                 combo = 0;
             }
-            Invoke("attackcomplete", 0.4f);
+            Invoke("attackDelay", 0.3f);
         }
         else
         {
