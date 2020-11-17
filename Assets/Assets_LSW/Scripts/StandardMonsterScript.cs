@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-//TODO : 플레이어의 컴포넌트에 접근하여 데미지 주기
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Animator))]
@@ -33,10 +32,6 @@ public class StandardMonsterScript : MonoBehaviour
     {
         CheckFloor();
         rigi.velocity = new Vector2(moveDir * speed, rigi.velocity.y);
-        if(Input.GetMouseButtonDown(0))
-        {
-            GetDamage(30);
-        }
     }
 
     void CheckFloor()
@@ -64,6 +59,10 @@ public class StandardMonsterScript : MonoBehaviour
 
         if (coll.gameObject.tag == "MONSTER")
         {
+            // 공격중일 땐 회전 X
+            if (moveDir == 0)
+                return;
+
             moveDir *= -1;
             transform.Rotate(0, 180, 0);
             hpCanvas.transform.Rotate(0, 180, 0);
@@ -85,7 +84,7 @@ public class StandardMonsterScript : MonoBehaviour
                     hpCanvas.transform.Rotate(0, 180, 0);
                     speed = 0;
                 }
-                speed = 5;
+                speed = 2;
                 StartCoroutine("Attack", coll);
             }
         }

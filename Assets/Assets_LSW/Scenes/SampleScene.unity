@@ -1900,11 +1900,6 @@ PrefabInstance:
       propertyPath: m_TagString
       value: MONSTER
       objectReference: {fileID: 0}
-    - target: {fileID: 7009136654718160372, guid: a315ee1fe0034a944a08f7e02eee1fe5,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a315ee1fe0034a944a08f7e02eee1fe5, type: 3}
 --- !u!50 &8144331770193248229
