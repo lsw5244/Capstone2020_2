@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class Player : PlayerState
 {
+    //플레이어 상태
+
+    public bool isground = false;
+    public bool isAttack = false;
+    public bool isAlive = true;
+
+    public GM gm;
     public Joystick joystick;
     Rigidbody2D rb;
-    public bool isground =false;
     public float walkcooltime;
     //사운드
     AudioSource audioSource;
@@ -29,11 +35,11 @@ public class Player : PlayerState
 
     //공격
     public GameObject attackCollider;
-    public bool isAttack=false;
     public float attackcooltime;
     public int combo;
     private void Start()
     {
+        gm = FindObjectOfType<GM>();
         audioSource = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
@@ -42,9 +48,11 @@ public class Player : PlayerState
     {
         if (HP <= 0)
         {
+            isAlive = false;
+            gm.gameOver(true);
             changeAnimation(death);
         }
-        if (isground == true && isAttack == false)
+        if (isground == true && isAttack == false&&isAlive==true)
         {
             if (joystick.joystickVector.x != 0)
             {
@@ -64,14 +72,18 @@ public class Player : PlayerState
                 walkcooltime += Time.deltaTime;
             }
         }
-        if (rb.velocity.y > 0 && isground == false && isAttack == false)
+        if (isAlive==true&& isground == false && isAttack == false)
         {
-            changeAnimation(jump);
-        }
-        else if (rb.velocity.y < 0 && isground == false && isAttack == false)
-        {
+            if (rb.velocity.y > 0 )
+            {
+                changeAnimation(jump);
+            }
+            else if (rb.velocity.y < 0)
+            {
                 changeAnimation(jumpToFall);
+            }
         }
+      
         if (attackcooltime <= 1)
         {
             attackcooltime += Time.deltaTime;
@@ -151,4 +163,5 @@ public class Player : PlayerState
         animator.Play(state);
         playerAnimationState = state;
     }
+
 }

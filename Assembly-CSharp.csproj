@@ -90,6 +90,7 @@
     <Compile Include="Assets\Assets_HSJ\Script\Enemy.cs" />
     <Compile Include="Assets\Assets_HSJ\Script\EnemyState.cs" />
     <Compile Include="Assets\Assets_HSJ\Script\Enemy_tracking.cs" />
+    <Compile Include="Assets\Assets_HSJ\Script\GM.cs" />
     <Compile Include="Assets\Assets_HSJ\Script\GroundCheck.cs" />
     <Compile Include="Assets\Assets_HSJ\Script\Joystick.cs" />
     <Compile Include="Assets\Assets_HSJ\Script\NextScene.cs" />
