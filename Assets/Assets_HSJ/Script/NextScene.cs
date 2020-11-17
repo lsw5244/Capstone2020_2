@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 public class NextScene : MonoBehaviour
-{ public bool canNextLV=false;
+{
+    public bool canNextLV=false;
     public Animator mainCameraAnimator;
+    public GameObject player;
 
     private void OnTriggerEnter2D(Collider2D col)
     {
@@ -54,6 +56,7 @@ public class NextScene : MonoBehaviour
     IEnumerator WaitOneSecond(int LV)
     {
         yield return new WaitForSeconds(1.5f);
+        SaveManager.instance.SaveHp(player.GetComponent<Player>().HP);
         SceneManager.LoadScene(LV);
     }
    

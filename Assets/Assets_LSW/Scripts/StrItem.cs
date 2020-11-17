@@ -5,9 +5,19 @@ using UnityEngine;
 public class StrItem : MonoBehaviour
 {
     public float str;
-    private void OnCollisionEnter(Collision coll)
+
+    private void OnCollisionEnter2D(Collision2D coll)
     {
-        if(coll.transform.tag == "PLAYER")
+        if (coll.transform.tag == "PLAYER")
+        {
+            SaveManager.instance.AddStr(str);
+            Destroy(this.gameObject);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D coll)
+    {
+        if (coll.transform.tag == "PLAYER")
         {
             SaveManager.instance.AddStr(str);
             Destroy(this.gameObject);

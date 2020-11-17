@@ -47,15 +47,19 @@ public class StandardMonsterScript : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D coll)
+    {
+        // 공격 받기
+        if (coll.gameObject.tag == "ATTACK")
+        {
+            GetDamage(SaveManager.instance.Str);
+        }
+    }
+
     private void OnCollisionEnter2D(Collision2D coll)
     {
         if (isDeath)
             return;
-        // 공격 받기
-        if(coll.gameObject.tag == "ATTACK")
-        {
-            GetDamage(coll.gameObject.GetComponent<Player>().damage);
-        }
 
         if (coll.gameObject.tag == "MONSTER")
         {
@@ -144,7 +148,7 @@ public class StandardMonsterScript : MonoBehaviour
         int temp = moveDir;
         moveDir = 0;
         ani.SetTrigger("Attack");
-
+        coll.transform.gameObject.GetComponent<Player>().Hit();
         yield return new WaitForSeconds(attackAnimationLength);
         moveDir = temp;
         isAttack = false;

@@ -9,7 +9,7 @@ public class Player : PlayerState
     public bool isground = false;
     public bool isAttack = false;
     public bool isAlive = true;
-
+    [SerializeField] bool ondmg = false;
     public GM gm;
     public Joystick joystick;
     Rigidbody2D rb;
@@ -43,6 +43,7 @@ public class Player : PlayerState
         audioSource = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        HP = SaveManager.instance.HP;
     }
     private void Update()
     {
@@ -146,14 +147,40 @@ public class Player : PlayerState
     public void Hit() {
         changeAnimation(hurt);
         HP--;
+        onDMG();
+    }
+
+    void onDMG()
+    {
+        ondmg = true;
+        //hitsound();
+        gameObject.layer = 9;//레이어 12로 변경
+        rb.AddForce(new Vector2(0, 2f), ForceMode2D.Impulse);//forcemode2D.impulse==충돌하면 지정된 힘을 가함
+        GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
+        Invoke("offDMG", 2.0f);//2초 있다가 off데미지로 이동
+    }
+    void offDMG()
+    {
+        gameObject.layer = 8;//레이어 원래대로
+        GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+        ondmg = false;
+    }
+
+    public void Heal(float point)
+    {
+        if (HP <= 5)
+            return;
+        HP += point;
+        SaveManager.instance.SaveHp(HP);
     }
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.tag == "MONSTER") {
-            Hit();
-        }
+        //if (col.tag == "MONSTER") {
+        //    Hit();
+        //}
     }
+
     void changeAnimation(string state)
     {
         if (state == playerAnimationState)
