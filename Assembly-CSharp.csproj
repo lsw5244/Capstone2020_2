@@ -188,6 +188,7 @@
     <None Include="Assets\Assets_HSJ\Download_Content\ScreenTransitionsPro\Shaders\TransitionMultiFocusSoft.shader" />
     <None Include="Assets\Assets_HSJ\Download_Content\ScreenTransitionsPro\Shaders\TransitionMultiFocus.shader" />
     <None Include="Assets\Assets_HSJ\Download_Content\ScreenTransitionsPro\Shaders\TransitionSimpleSoft.shader" />
+    <None Include="Assets\Pixel Heroes Pack\ColorSwap\Sprites-ColorSwap.shader" />
     <None Include="Assets\Assets_HSJ\Download_Content\ScreenTransitionsPro\Shaders\TransitionFade.shader" />
     <None Include="Assets\Assets_LSW\FreePixelMob\ReadMe.txt" />
     <None Include="Assets\Assets_HSJ\Download_Content\ScreenTransitionsPro\Shaders\TransitionSingleFocus.shader" />
