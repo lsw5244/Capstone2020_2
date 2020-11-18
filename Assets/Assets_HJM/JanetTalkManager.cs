@@ -9,6 +9,8 @@ public class JanetTalkManager : MonoBehaviour
 
     //----------------------------------반드시 넣어야함-------------------------------------
     public GameObject canvas; //껐다 켤 캔버스 UI
+    public GameObject canvas2;
+    public Joystick joystick;
     public Text text; //글자 바꿀 텍스트 UI
     public Image CharaterUi; //이미지 바꿀 UI
     public Sprite[] Charaterimage; //캐릭터 이미지파일
@@ -43,12 +45,13 @@ public class JanetTalkManager : MonoBehaviour
         {
             if (i == 0) //--------대화마다 숫자 임의로 늘려 주기-----------
             {
-                text.text = "유영훈 어서오고"; // 복붙으로 대화 입력
+                canvas2.SetActive(false);
+                text.text = "안녕?"; // 복붙으로 대화 입력
                 CharaterUi.sprite = Charaterimage[0]; // 표정 바꾸기
             }
             if (i == 1)
             {
-                text.text = "아침부터 왜 그리 죽상이야";
+                text.text = "내 이름은 자넷. 드루이드의 후손이야";
                 CharaterUi.sprite = Charaterimage[1]; // 표정 바꾸기
             }
             if (i == 2)
@@ -56,6 +59,10 @@ public class JanetTalkManager : MonoBehaviour
                 text.text = "아잇 씻팔 \n코딩이 꼴받게 하잖아.";
                 CharaterUi.sprite = Charaterimage[2]; // 표정 바꾸기
                 isTalking = false; //마지막 대화 시 넣는 코드.
+            }
+            if (i == 3)
+            {
+                canvas2.SetActive(true);
             }
 
             //----------------------------------------------------------------------------------------------------------------------------------------------------

@@ -5,7 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Assets_HSJ/Scenes/LV1.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Town_Map 1.unity
+    guid: f2bb0f3b6a7944148a0bf1e67728a0ee
+  - enabled: 1
+    path: Assets/Scenes/NormalMap1.unity
+    guid: a3fa3ea1115ecd349bd0a1230883bdef
   m_configObjects: {}

@@ -14,13 +14,13 @@ public class NextScene : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D col)
     {//맵을 이동하는데 조건을 부여하고 싶다면 if문에 추가
-        if (col.tag=="Player") {
+        if (col.tag=="PLAYER") {
             canNextLV = true;
         }
     }
     private void OnTriggerExit2D(Collider2D col)
     {
-        if (col.tag != "Player")
+        if (col.tag != "PLAYER")
         {
             canNextLV = false;
         }
@@ -55,9 +55,18 @@ public class NextScene : MonoBehaviour
     }
     IEnumerator WaitOneSecond(int LV)
     {
-        yield return new WaitForSeconds(1.5f);
-        SaveManager.instance.SaveHp(player.GetComponent<Player>().HP);
+        yield return new WaitForSeconds(1f);
+       // SaveManager.instance.SaveHp(player.GetComponent<Player>().HP);
         SceneManager.LoadScene(LV);
     }
-   
+    public void LoadScene()
+    {
+        mainCameraAnimator.enabled = true;
+        SceneManager.LoadScene("Town_Map 1");
+    }
+
+    public void QUIT()
+    {
+        Application.Quit();
+    }
 }

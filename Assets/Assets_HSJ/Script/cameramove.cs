@@ -14,6 +14,7 @@ public class cameramove : MonoBehaviour
     {
         float posX = Mathf.SmoothDamp(transform.position.x, player.transform.position.x, ref velocity.x, X);//X축 따라오는 속도
         float posY = Mathf.SmoothDamp(transform.position.y, player.transform.position.y, ref velocity.y, Y);//Y축 따라오는 속도
+        Debug.Log($"posY : {posY}");
         transform.position = new Vector3(posX, posY, transform.position.z);
     }
 }

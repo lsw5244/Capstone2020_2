@@ -13,6 +13,10 @@ public class StrItem : MonoBehaviour
             SaveManager.instance.AddStr(str);
             Destroy(this.gameObject);
         }
+        if (coll.transform.tag == "MONSTER")
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D coll)
@@ -22,5 +26,6 @@ public class StrItem : MonoBehaviour
             SaveManager.instance.AddStr(str);
             Destroy(this.gameObject);
         }
+       
     }
 }

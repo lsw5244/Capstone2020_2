@@ -9,6 +9,7 @@ public class SenaTalkManager : MonoBehaviour
 
     //----------------------------------반드시 넣어야함-------------------------------------
     public GameObject canvas; //껐다 켤 캔버스 UI
+    public GameObject canvas2;
     public Text text; //글자 바꿀 텍스트 UI
     public Image CharaterUi; //이미지 바꿀 UI
     public Sprite[] Charaterimage; //캐릭터 이미지파일
@@ -34,6 +35,7 @@ public class SenaTalkManager : MonoBehaviour
             else //UI가 꺼져있을때
             {
                 isTalking = false;
+
             }
         }
 
@@ -43,6 +45,7 @@ public class SenaTalkManager : MonoBehaviour
         {
             if (i == 0) //--------대화마다 숫자 임의로 늘려 주기-----------
             {
+                canvas2.SetActive(false);
                 text.text = "안녕"; // 복붙으로 대화 입력
                 CharaterUi.sprite = Charaterimage[0]; // 표정 바꾸기
             }
@@ -57,8 +60,13 @@ public class SenaTalkManager : MonoBehaviour
                 CharaterUi.sprite = Charaterimage[2]; // 표정 바꾸기
                 isTalking = false; //마지막 대화 시 넣는 코드.
             }
+            if (i == 3)
+            {
+                canvas2.SetActive(true);
+              
+            }
 
-        //----------------------------------------------------------------------------------------------------------------------------------------------------
+            //----------------------------------------------------------------------------------------------------------------------------------------------------
 
             //마지막 대화 체크 후, 초기 맨처음 대사로 돌림.
             if (!isTalking) 
@@ -78,6 +86,11 @@ public class SenaTalkManager : MonoBehaviour
         {
             isPlayerCheck = true;
         }
+        else
+        {
+            canvas.SetActive(false);
+        }
+
     }
 
     private void OnTriggerExit2D(Collider2D collision) //플레이어가 안 부딪칠때
@@ -86,5 +99,10 @@ public class SenaTalkManager : MonoBehaviour
         {
             isPlayerCheck = false;
         }
+        else
+        {
+            canvas.SetActive(false);
+        }
+
     }
 }

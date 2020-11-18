@@ -13,6 +13,7 @@ public class Potion : MonoBehaviour
             coll.gameObject.GetComponent<Player>().Heal(hpPoint);
             Destroy(this.gameObject);
         }
+
     }
 
     private void OnCollisionEnter2D(Collision2D coll)
@@ -20,6 +21,10 @@ public class Potion : MonoBehaviour
         if (coll.transform.tag == "PLAYER")
         {
             coll.gameObject.GetComponent<Player>().Heal(hpPoint);
+            Destroy(this.gameObject);
+        }
+        if (coll.transform.tag == "MONSTER")
+        {
             Destroy(this.gameObject);
         }
     }

@@ -9,6 +9,7 @@ public class Player : PlayerState
     public bool isground = false;
     public bool isAttack = false;
     public bool isAlive = true;
+    public bool conv;
     [SerializeField] bool ondmg = false;
     public GM gm;
     public Joystick joystick;
@@ -57,6 +58,10 @@ public class Player : PlayerState
         {
             if (joystick.joystickVector.x != 0)
             {
+                if (conv == true)
+                {
+                   
+                }
                 if (walkcooltime > 0.4f)
                 {
                     audioSource.PlayOneShot(walkSound, 1);
