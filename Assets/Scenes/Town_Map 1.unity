@@ -1280,15 +1280,20 @@ PrefabInstance:
       propertyPath: joystick
       value: 
       objectReference: {fileID: 1341190655}
+    - target: {fileID: 600702222727402989, guid: e8a6b76d12da0fd488e0b5e8f519795a,
+        type: 3}
+      propertyPath: jumpPower
+      value: 300
+      objectReference: {fileID: 0}
     - target: {fileID: 4761060554794724174, guid: e8a6b76d12da0fd488e0b5e8f519795a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.83
+      value: -9.19
       objectReference: {fileID: 0}
     - target: {fileID: 4761060554794724174, guid: e8a6b76d12da0fd488e0b5e8f519795a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.63
+      value: -2.86
       objectReference: {fileID: 0}
     - target: {fileID: 4761060554794724174, guid: e8a6b76d12da0fd488e0b5e8f519795a,
         type: 3}
@@ -3675,12 +3680,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!1 &553881899 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 574167150886586005, guid: 280fc42e2c0cf7846824c80832c58966,
-    type: 3}
-  m_PrefabInstance: {fileID: 1607513668}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &559046802
 GameObject:
   m_ObjectHideFlags: 0
@@ -4990,7 +4989,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 8656296573374423937}
   canvas2: {fileID: 842889908}
-  joy: {fileID: 553881899}
   text: {fileID: 8656296572184257900}
   CharaterUi: {fileID: 8656296572780531308}
   Charaterimage:
@@ -7112,6 +7110,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 8656296573374423937}
   canvas2: {fileID: 842889908}
+  joystick: {fileID: 0}
   text: {fileID: 8656296572184257900}
   CharaterUi: {fileID: 8656296572780531308}
   Charaterimage:
@@ -8357,7 +8356,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1607513668}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 553881899}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad45acb5190cde54392a8916acfbec5c, type: 3}

@@ -44,7 +44,7 @@ public class Player : PlayerState
         audioSource = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-        HP = SaveManager.instance.HP;
+        //HP = SaveManager.instance.HP;
     }
     private void Update()
     {
