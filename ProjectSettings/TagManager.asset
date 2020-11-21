@@ -11,6 +11,7 @@ TagManager:
   - NPC
   - GROUND
   - ATTACK
+  - HPUI
   layers:
   - Default
   - TransparentFX

@@ -22340,6 +22340,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 600702222727402989, guid: e8a6b76d12da0fd488e0b5e8f519795a,
         type: 3}
+      propertyPath: attackSound.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 600702222727402989, guid: e8a6b76d12da0fd488e0b5e8f519795a,
+        type: 3}
       propertyPath: joystick
       value: 
       objectReference: {fileID: 1761843779}
@@ -22348,6 +22353,11 @@ PrefabInstance:
       propertyPath: jumpPower
       value: 350
       objectReference: {fileID: 0}
+    - target: {fileID: 600702222727402989, guid: e8a6b76d12da0fd488e0b5e8f519795a,
+        type: 3}
+      propertyPath: attackSound.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 95d0c473d44f6458e92e9dd2014429c8, type: 3}
     - target: {fileID: 4761060554794724174, guid: e8a6b76d12da0fd488e0b5e8f519795a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -24407,6 +24417,11 @@ PrefabInstance:
       value: '
 
 '
+      objectReference: {fileID: 0}
+    - target: {fileID: 7674530879926111828, guid: 280fc42e2c0cf7846824c80832c58966,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7949467167768409061, guid: 280fc42e2c0cf7846824c80832c58966,
         type: 3}

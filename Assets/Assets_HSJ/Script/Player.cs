@@ -50,6 +50,8 @@ public class Player : PlayerState
     {
         if (HP <= 0)
         {
+            speed = 0;
+            gameObject.layer = 9;
             isAlive = false;
             gm.gameOver(true);
             changeAnimation(death);
@@ -152,6 +154,7 @@ public class Player : PlayerState
     public void Hit() {
         changeAnimation(hurt);
         HP--;
+        audioSource.PlayOneShot(attackSound[3]);
         SaveManager.instance.SaveHp(HP);
         Debug.Log(HP);
         onDMG();
