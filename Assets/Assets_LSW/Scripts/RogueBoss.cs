@@ -110,12 +110,12 @@ public class RogueBoss : MonoBehaviour
 
         if (coll.gameObject.tag == "ATTACK")
         {
-            GetDamage(coll.gameObject.GetComponent<Player>().damage);
+            GetDamage(50);
         }
 
         if(coll.transform.tag == "PLAYER" && !isAttack)
         {
-            //StartCoroutine("Attack");
+            StartCoroutine("Attack");
         }
     }
     private void OnCollisionStay2D(Collision2D coll)
@@ -124,7 +124,7 @@ public class RogueBoss : MonoBehaviour
             return;
         if (coll.transform.tag == "PLAYER" && !isAttack)
         {
-            //StartCoroutine("Attack");
+            StartCoroutine("Attack");
         }
     }
     void Die()
@@ -158,6 +158,16 @@ public class RogueBoss : MonoBehaviour
             Destroy(bolt, 10f);
             // Turn arrow in correct direction
             bolt.transform.localScale = facingVector;
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D coll)
+    {
+        if (isDie)
+            return;
+
+        if (coll.gameObject.tag == "ATTACK")
+        {
+            GetDamage(SaveManager.instance.Str);
         }
     }
 }

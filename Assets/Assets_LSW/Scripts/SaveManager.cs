@@ -10,7 +10,7 @@ public class SaveManager : MonoBehaviour
     private float str;
     public float Str
     {
-        get { return str; } 
+        get { return str; }
     }
     public void AddStr(float add)
     {
@@ -28,24 +28,39 @@ public class SaveManager : MonoBehaviour
     {
         this.hp = hp;
         PlayerPrefs.SetFloat("CurrentHp", hp);
-        Debug.Log(hp);
+        //Debug.Log(hp);
     }
 
     private void Awake()
     {
-        if(instance == null)
+        if (instance == null)
         {
             instance = this;
-            str = 50f;
-            hp = 5f;
-            PlayerPrefs.SetFloat("CurrentStr", str);
-            PlayerPrefs.SetFloat("CurrentHp", hp);
+            //Debug.Log("@@@@@");
+            //PlayerPrefs.SetFloat("CurrentStr", 50f);
+            //PlayerPrefs.SetFloat("CurrentHp", 5f);
         }
     }
     void Start()
     {
-        str = PlayerPrefs.GetFloat("CurrentStr");
-        hp = PlayerPrefs.GetFloat("CurrentHp");
+        if (PlayerPrefs.GetFloat("CurrentHp") > 0)
+        {
+            hp = PlayerPrefs.GetFloat("CurrentHp");
+        }
+        else
+        {
+            hp = 5;
+        }
+
+        if (PlayerPrefs.GetFloat("CurrentStr") > 50)
+        {
+            str = PlayerPrefs.GetFloat("CurrentStr");
+        }
+        else
+        {
+            str = 50;
+        }
+
     }
 
     public void ResetStatus()
