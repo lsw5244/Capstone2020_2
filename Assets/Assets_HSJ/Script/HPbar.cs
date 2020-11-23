@@ -6,11 +6,13 @@ public class HPbar : MonoBehaviour {
     public Sprite[] Heart;
     public Image HeartUI;
     private Player player;
-    void Start()   {
+    void Start()  
+    {
         HeartUI= GameObject.FindGameObjectWithTag("HPUI").GetComponent<Image>();
         player = GameObject.FindGameObjectWithTag("PLAYER").GetComponent<Player>();
     }
-void Update()    {
+    void Update()    
+    {
         HeartUI.sprite = Heart[(int)player.HP];
     }
 }

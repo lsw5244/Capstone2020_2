@@ -46,24 +46,30 @@ public class SenaTalkManager : MonoBehaviour
             if (i == 0) //--------대화마다 숫자 임의로 늘려 주기-----------
             {
                 canvas2.SetActive(false);
-                text.text = "안녕"; // 복붙으로 대화 입력
+                text.text = "안녕? 내 이름은 세나"; // 복붙으로 대화 입력
                 CharaterUi.sprite = Charaterimage[0]; // 표정 바꾸기
             }
             if (i == 1)
             {
-                text.text = "유영훈";
+                text.text = "드루이드의 파수꾼이야";
                 CharaterUi.sprite = Charaterimage[1]; // 표정 바꾸기
             }
             if (i == 2)
             {
-                text.text = "이게 노가다 코드란다. \n줄바꿈";
+                text.text = "이 미궁에서 몬스터가 밖으로 나가지 못하도록 ";
                 CharaterUi.sprite = Charaterimage[2]; // 표정 바꾸기
-                isTalking = false; //마지막 대화 시 넣는 코드.
             }
             if (i == 3)
             {
-                canvas2.SetActive(true);
-                          }
+                text.text = "감시하는 역활을 맞고 있어";
+                CharaterUi.sprite = Charaterimage[2]; // 표정 바꾸기
+            }
+            if (i == 4)
+            {
+                text.text = "궁금한게 있으면 언제든지 찾아와";
+                CharaterUi.sprite = Charaterimage[1]; // 표정 바꾸기
+                isTalking = false; //마지막 대화 시 넣는 코드.
+            }
 
             //----------------------------------------------------------------------------------------------------------------------------------------------------
 

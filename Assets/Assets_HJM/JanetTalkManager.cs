@@ -45,24 +45,21 @@ public class JanetTalkManager : MonoBehaviour
         {
             if (i == 0) //--------대화마다 숫자 임의로 늘려 주기-----------
             {
-                canvas2.SetActive(false);
-                text.text = "안녕?"; // 복붙으로 대화 입력
+                //canvas2.SetActive(false);
+                text.text = "흐응? 내가 누구냐고?"; // 복붙으로 대화 입력
                 CharaterUi.sprite = Charaterimage[0]; // 표정 바꾸기
             }
             if (i == 1)
             {
-                text.text = "내 이름은 자넷. 드루이드의 후손이야";
+                text.text = "내 이름은 자넷. 대마법사 알렌의 직계후손이야";
                 CharaterUi.sprite = Charaterimage[1]; // 표정 바꾸기
             }
             if (i == 2)
             {
-                text.text = "아잇 씻팔 \n코딩이 꼴받게 하잖아.";
+                text.text = "세나를 도와서 미궁수호를 돕고 있어.";
                 CharaterUi.sprite = Charaterimage[2]; // 표정 바꾸기
                 isTalking = false; //마지막 대화 시 넣는 코드.
-            }
-            if (i == 3)
-            {
-                canvas2.SetActive(true);
+            //    canvas2.SetActive(true);
             }
 
             //----------------------------------------------------------------------------------------------------------------------------------------------------
