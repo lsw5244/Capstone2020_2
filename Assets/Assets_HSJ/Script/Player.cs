@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : PlayerState
 {
     //플레이어 상태
-
+    public float joystickVector = 1;
     public bool isground = false;
     public bool isAttack = false;
     public bool isAlive = true;
@@ -24,7 +24,7 @@ public class Player : PlayerState
     string playerAnimationState;
     Animator animator;
 
-    string idle = "HeroKnight_Idle";
+    public string idle = "HeroKnight_Idle";
     string jump = "HeroKnight_Jump";
     string jumpToFall = "HeroKnight_Fall";
     string run = "HeroKnight_Run";
@@ -104,7 +104,7 @@ public class Player : PlayerState
         } else if (joystick.joystickVector.x < 0) {
             transform.rotation = Quaternion.Euler(0, 180, 0);
         }
-        rb.velocity = new Vector2(joystick.joystickVector.x * speed * Time.deltaTime, rb.velocity.y);
+        rb.velocity = new Vector2(joystick.joystickVector.x * speed * Time.deltaTime*joystickVector, rb.velocity.y);
     }
     //점프
     public void Jump() {
@@ -191,7 +191,7 @@ public class Player : PlayerState
         //}
     }
 
-    void changeAnimation(string state)
+    public void changeAnimation(string state)
     {
         if (state == playerAnimationState)
         {

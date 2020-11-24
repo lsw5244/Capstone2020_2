@@ -10,7 +10,7 @@ public class JanetTalkManager : MonoBehaviour
     //----------------------------------반드시 넣어야함-------------------------------------
     public GameObject canvas; //껐다 켤 캔버스 UI
     public GameObject canvas2;
-    public Joystick joystick;
+    public GameObject player;
     public Text text; //글자 바꿀 텍스트 UI
     public Image CharaterUi; //이미지 바꿀 UI
     public Sprite[] Charaterimage; //캐릭터 이미지파일
@@ -45,7 +45,9 @@ public class JanetTalkManager : MonoBehaviour
         {
             if (i == 0) //--------대화마다 숫자 임의로 늘려 주기-----------
             {
-                //canvas2.SetActive(false);
+                canvas2.SetActive(false);
+                player.GetComponent<Player>().joystickVector = 0;
+                player.GetComponent<Player>().changeAnimation(player.GetComponent<Player>().idle);
                 text.text = "흐응? 내가 누구냐고?"; // 복붙으로 대화 입력
                 CharaterUi.sprite = Charaterimage[0]; // 표정 바꾸기
             }
@@ -59,7 +61,9 @@ public class JanetTalkManager : MonoBehaviour
                 text.text = "세나를 도와서 미궁수호를 돕고 있어.";
                 CharaterUi.sprite = Charaterimage[2]; // 표정 바꾸기
                 isTalking = false; //마지막 대화 시 넣는 코드.
-            //    canvas2.SetActive(true);
+                canvas2.SetActive(true);
+                player.GetComponent<Player>().joystickVector = 1;
+                player.GetComponent<Player>().changeAnimation(player.GetComponent<Player>().idle);
             }
 
             //----------------------------------------------------------------------------------------------------------------------------------------------------

@@ -10,6 +10,7 @@ public class SenaTalkManager : MonoBehaviour
     //----------------------------------반드시 넣어야함-------------------------------------
     public GameObject canvas; //껐다 켤 캔버스 UI
     public GameObject canvas2;
+    public GameObject player;
     public Text text; //글자 바꿀 텍스트 UI
     public Image CharaterUi; //이미지 바꿀 UI
     public Sprite[] Charaterimage; //캐릭터 이미지파일
@@ -46,7 +47,9 @@ public class SenaTalkManager : MonoBehaviour
             if (i == 0) //--------대화마다 숫자 임의로 늘려 주기-----------
             {
                 canvas2.SetActive(false);
-                text.text = "안녕? 내 이름은 세나"; // 복붙으로 대화 입력
+                player.GetComponent<Player>().joystickVector=0;
+                player.GetComponent<Player>().changeAnimation(player.GetComponent<Player>().idle);
+               text.text = "안녕? 내 이름은 세나"; // 복붙으로 대화 입력
                 CharaterUi.sprite = Charaterimage[0]; // 표정 바꾸기
             }
             if (i == 1)
@@ -69,6 +72,9 @@ public class SenaTalkManager : MonoBehaviour
                 text.text = "궁금한게 있으면 언제든지 찾아와";
                 CharaterUi.sprite = Charaterimage[1]; // 표정 바꾸기
                 isTalking = false; //마지막 대화 시 넣는 코드.
+                canvas2.SetActive(true);
+                player.GetComponent<Player>().joystickVector = 1;
+                player.GetComponent<Player>().changeAnimation(player.GetComponent<Player>().idle);
             }
 
             //----------------------------------------------------------------------------------------------------------------------------------------------------
