@@ -7261,7 +7261,7 @@ MonoBehaviour:
   - {fileID: 3732159013171762654, guid: c25c2f88656d84c4da0fdeb930e6f2d1, type: 3}
   - {fileID: 7801782669664771342, guid: c25c2f88656d84c4da0fdeb930e6f2d1, type: 3}
   - {fileID: 1807242191943310733, guid: c25c2f88656d84c4da0fdeb930e6f2d1, type: 3}
-  HeartUI: {fileID: 0}
+  HeartUI: {fileID: 7640395538678929695}
 --- !u!95 &7374198029516320374
 Animator:
   serializedVersion: 3
@@ -8073,6 +8073,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 280fc42e2c0cf7846824c80832c58966, type: 3}
+--- !u!114 &7640395538678929695 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 130135233187306125, guid: 280fc42e2c0cf7846824c80832c58966,
+    type: 3}
+  m_PrefabInstance: {fileID: 7640395538678929694}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!81 &7659690526469753660
 AudioListener:
   m_ObjectHideFlags: 0

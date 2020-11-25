@@ -33851,6 +33851,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1807242191943310733, guid: c25c2f88656d84c4da0fdeb930e6f2d1,
         type: 3}
+    - target: {fileID: 3477778546124471470, guid: 555e7b5b9180b5844972e04527ce59d6,
+        type: 3}
+      propertyPath: HeartUI
+      value: 
+      objectReference: {fileID: 7640395538678929695}
     - target: {fileID: 6892332208868323322, guid: 555e7b5b9180b5844972e04527ce59d6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -34527,6 +34532,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 280fc42e2c0cf7846824c80832c58966, type: 3}
+--- !u!114 &7640395538678929695 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 130135233187306125, guid: 280fc42e2c0cf7846824c80832c58966,
+    type: 3}
+  m_PrefabInstance: {fileID: 7640395538678929694}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &7704374400856003816
 SpriteRenderer:
   m_ObjectHideFlags: 0

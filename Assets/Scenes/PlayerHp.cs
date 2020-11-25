@@ -9,7 +9,7 @@ public class PlayerHp : MonoBehaviour
     
     void Start()
     {
-        player.GetComponent<Player>().HP = 4;
+        player.GetComponent<Player>().HP = 5;
     }
 
     // Update is called once per frame
